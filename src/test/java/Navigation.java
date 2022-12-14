@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,10 @@ public class Navigation {
     @Test
     public void open()
     {
-        driver.get("https://www.olx.pl/");
+        driver.navigate().to("https://www.olx.pl/");
+        driver.get("https://www.onet.pl/");
+        driver.navigate().back();;
+        String olxTitle = "Ogloszenia - Sprzedam, kupie na OLX.pl";
+        Assertions.assertEquals(olxTitle, driver.getTitle(), "The title of the page is not: " + olxTitle);
     }
 }
