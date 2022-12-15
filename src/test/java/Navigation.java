@@ -8,19 +8,17 @@ public class Navigation {
     WebDriver driver;
 
     @BeforeEach
-    public void chromeDriverSetup()
-    {
+    public void chromeDriverSetup() {
         driver = SeleniumTestUtils.initChromeDriver("chromedriver.exe");
     }
+
     @AfterEach
-    public void driverQuit()
-    {
+    public void driverQuit() {
         driver.quit();
     }
 
     @Test
-    public void open()
-    {
+    public void open() {
         driver.navigate().to("https://www.olx.pl/");
         driver.get("https://www.onet.pl/");
         driver.navigate().back();

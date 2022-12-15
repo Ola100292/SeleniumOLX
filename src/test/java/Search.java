@@ -6,21 +6,20 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
-import java.util.concurrent.TimeUnit;
 
 public class Search {
 
     WebDriver driver;
+
     @BeforeEach
-    public void chromeDriverSetup()
-    {
+    public void chromeDriverSetup() {
         driver = SeleniumTestUtils.initChromeDriver("chromedriver.exe");
     }
+
     @AfterEach
-    public void driverQuit()
-    {
+    public void driverQuit() {
         driver.quit();
     }
 
@@ -40,6 +39,27 @@ public class Search {
         String exceptedUrl = "https://www.olx.pl/d/oferty/q-Dom/";
         String actualUrl = driver.getCurrentUrl();
         Assertions.assertEquals(exceptedUrl, actualUrl);
+    }
+
+    @Test
+    public void searchHousesSilesia() //find by xpatch and className
+    {
+        driver.navigate().to("https://www.olx.pl/");
+        driver.findElement(By.id("onetrust-accept-btn-handler")).click();
+        WebElement searchFieldByXpath = driver.findElement(By.xpath("//*[@id=\"headerSearch\"]"));
+        searchFieldByXpath.sendKeys("Dom");
+        WebElement searchFieldByClass = driver.findElement(By.className("cityfield"));
+        searchFieldByClass.click();
+        //instantiate an Actions class for mouse
+        Actions actions = new Actions(driver);
+        //argument for moveToElement()
+        WebElement chooseRegion = driver.findElement(By.className("a-region-6"));
+        //Move Mouse Action
+        actions.moveToElement(chooseRegion).perform();
+        driver.findElement(By.xpath("//*[@id=\"a-region-6\"]")).click();
+       // WebElement listingCount = driver.findElement(By.cssSelector("[class*='css-n9feq4']"));
+       // Boolean checkListingCount = listingCount.isDisplayed();
+       // Assertions.assertTrue(checkListingCount);
 
     }
 }

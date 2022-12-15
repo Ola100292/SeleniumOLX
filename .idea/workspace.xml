@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d467b96-fc45-4cb5-a2ce-98ce8a4f7088" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7d467b96-fc45-4cb5-a2ce-98ce8a4f7088" name="Changes" comment="Search by id">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Navigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Navigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Search.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +119,7 @@
     "settings.editor.selected.configurable": "File.Encoding"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.Search.searchHouses">
+  <component name="RunManager" selected="Gradle.Search.searchHousesSilesia">
     <configuration name="Drivers.chromeDriverProperty" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -192,13 +189,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="Search.searchHousesSilesia" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;Search.searchHousesSilesia&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Search.searchHousesSilesia" />
         <item itemvalue="Gradle.Search.searchHouses" />
         <item itemvalue="Gradle.Navigation.open" />
         <item itemvalue="Gradle.Drivers.chromeDriverProperty" />
         <item itemvalue="Gradle.Navigation.open" />
-        <item itemvalue="Gradle.Drivers.chromeDriverProperty" />
       </list>
     </recent_temporary>
   </component>
@@ -225,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671017253087</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Search by id">
+      <created>1671100924475</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671100924475</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,7 +283,8 @@
     <MESSAGE value="Test drivers" />
     <MESSAGE value="Test driver" />
     <MESSAGE value="Change name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change name" />
+    <MESSAGE value="Search by id" />
+    <option name="LAST_COMMIT_MESSAGE" value="Search by id" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
