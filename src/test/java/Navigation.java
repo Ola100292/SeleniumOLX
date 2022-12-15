@@ -24,7 +24,7 @@ public class Navigation {
         driver.navigate().to("https://www.olx.pl/");
         driver.get("https://www.onet.pl/");
         driver.navigate().back();
-        String olxTitle = "Ogloszenia - Sprzedam, kupie na OLX.pl";
+        String olxTitle = "Ogłoszenia - Sprzedam, kupię na OLX.pl";
         Assertions.assertEquals(olxTitle, driver.getTitle(), "The title of the page is not: " + olxTitle);
     }
 }
