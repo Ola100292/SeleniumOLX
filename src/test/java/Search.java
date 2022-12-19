@@ -7,6 +7,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class Search {
@@ -57,9 +65,35 @@ public class Search {
         //Move Mouse Action
         actions.moveToElement(chooseRegion).perform();
         driver.findElement(By.xpath("//*[@id=\"a-region-6\"]")).click();
-       // WebElement listingCount = driver.findElement(By.cssSelector("[class*='css-n9feq4']"));
-       // Boolean checkListingCount = listingCount.isDisplayed();
-       // Assertions.assertTrue(checkListingCount);
+        // WebElement listingCount = driver.findElement(By.cssSelector("[class*='css-n9feq4']"));
+        // Boolean checkListingCount = listingCount.isDisplayed();
+        // Assertions.assertTrue(checkListingCount);
 
     }
+
+    @Test
+    public void searchCars()  {
+        //Explicit wait
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        // check for condition
+        wait.pollingEvery((Duration.ofMillis(250)));
+        driver.navigate().to("https://www.olx.pl/");
+        driver.findElement(By.id("onetrust-accept-btn-handler")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[class*='cat-cmt-icon-5']")));
+        driver.findElement(By.cssSelector("[class*='cat-cmt-icon-5']")).click();
+        //wait for element after click
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("[href*='samochody']")))).click();
+        //wait for page to load completely
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.name("searchBtn")));
+        WebElement searchCar = driver.findElement(By.xpath("//*[@id=\"search\"]"));
+
+        wait.until((ExpectedConditions.elementToBeClickable(searchCar)));
+
+        searchCar.sendKeys("Toyota Yaris");
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/form/div[3]/div[1]/div/div[14]/div/div")))).click();
+
+
+    }
+
 }
