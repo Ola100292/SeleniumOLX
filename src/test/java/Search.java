@@ -70,12 +70,11 @@ public class Search {
     }
 
     @Test
-    public void searchCars()  {
+    public void searchCars() {
         //Explicit wait
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         // check for condition
-        wait.pollingEvery((Duration.ofMillis(250)));
+        wait.pollingEvery((Duration.ofMillis(400)));
         driver.navigate().to("https://www.olx.pl/");
         driver.findElement(By.id("onetrust-accept-btn-handler")).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[class*='cat-cmt-icon-5']")));
@@ -85,13 +84,13 @@ public class Search {
         //wait for page to load completely
         wait.until(ExpectedConditions.presenceOfElementLocated(By.name("searchBtn")));
         WebElement searchCar = driver.findElement(By.xpath("//*[@id=\"search\"]"));
-
         wait.until((ExpectedConditions.elementToBeClickable(searchCar)));
-
         searchCar.sendKeys("Toyota Yaris");
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/form/div[3]/div[1]/div/div[14]/div/div")))).click();
-
-
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/form/div[3]/div[1]/div/div[14]/div/div/div[2]/div/div[2]/label")))).click();
+        driver.findElement(By.name("searchBtn")).click();
+        boolean checkSearch = driver.getPageSource().contains("Toyota");
+        Assertions.assertTrue(checkSearch);
     }
 
 }
