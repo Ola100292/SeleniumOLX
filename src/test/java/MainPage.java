@@ -24,18 +24,26 @@ public class MainPage {
     }
 
     @Test
-    public void Footer() {
+    public void scrollDownToFooter() {
         driver.navigate().to("https://www.olx.pl/");
         driver.findElement(By.id("onetrust-accept-btn-handler")).click();
-        //WebElement element = driver.findElement(By.cssSelector("[href*='mobline']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        //scroll down
+        //scroll down by using console
         js.executeScript("window.scrollBy(0,3500)");
         WebElement element = driver.findElement(By.cssSelector("[href*='mobilne']"));
         element.click();
-        String expectedURL= "https://www.olx.pl/lp/mobilne/";
-        String actualUrl= driver.getCurrentUrl();
-        Assertions.assertEquals(expectedURL,actualUrl);
+        String expectedURL = "https://www.olx.pl/lp/mobilne/";
+        String actualUrl = driver.getCurrentUrl();
+        Assertions.assertEquals(expectedURL, actualUrl);
 
     }
+
+    @Test
+    public void scrollDownToFooter2()
+    {
+        driver.navigate().to("https://www.olx.pl/");
+        driver.findElement(By.id("onetrust-accept-btn-handler")).click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+    }
+
 }
