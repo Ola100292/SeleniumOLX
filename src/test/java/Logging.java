@@ -24,7 +24,7 @@ public class Logging {
     }
 
     @Test
-    public void logging() throws InterruptedException {
+    public void logging() {
 
         driver.navigate().to("https://www.olx.pl/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
