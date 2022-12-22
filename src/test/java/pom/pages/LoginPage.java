@@ -6,10 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pom.tests.TestBase;
 
-public class Login extends TestBase {
+public class LoginPage extends TestBase {
 
-    @FindBy(id = "onetrust-accept-btn-handler")
-    WebElement accCookies;
     @FindBy(css = "#topLoginLink > span")
     WebElement mainLoggingBt;
     @FindBy(className = "css-1c0rtj6")
@@ -23,10 +21,6 @@ public class Login extends TestBase {
     @FindBy(className = "css-rdovvl")
     WebElement checkCondition;
 
-    public void clickOnCookies() {
-        accCookies.click();
-    }
-
     public void clickOnMainLoggingBt() {
         mainLoggingBt.click();
     }
@@ -35,7 +29,6 @@ public class Login extends TestBase {
         wait.until(ExpectedConditions.visibilityOf(waitCondition));
         login.sendKeys(strLogin);
     }
-
     public void setPassword(String strPass) {
         password.sendKeys(strPass);
     }
