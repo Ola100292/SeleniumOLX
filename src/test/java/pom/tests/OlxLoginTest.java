@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 import pom.pages.HomePage;
 import pom.pages.LoginPage;
 
-public class OlxLoginTestPage extends TestBase {
+public class OlxLoginTest extends TestBase {
 
     @Test
     public void init() {
