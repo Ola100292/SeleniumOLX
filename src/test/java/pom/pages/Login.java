@@ -1,15 +1,13 @@
 package pom.pages;
 
-import org.openqa.selenium.WebDriver;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import pom.tests.TestBase;
 
-public class Login {
-    WebDriver driver;
-    public Login(WebDriver driver)
-    {
-        this.driver=driver;
-    }
+public class Login extends TestBase {
+
     @FindBy(id = "onetrust-accept-btn-handler")
     WebElement accCookies;
     @FindBy(css = "#topLoginLink > span")
@@ -20,6 +18,10 @@ public class Login {
     WebElement password;
     @FindBy(className = "css-ohaivz-BaseStyles")
     WebElement loginBtn;
+    @FindBy(className = "css-12nnhr7")
+    WebElement waitCondition;
+    @FindBy(className = "css-rdovvl")
+    WebElement checkCondition;
 
     public void clickOnCookies() {
         accCookies.click();
@@ -28,17 +30,23 @@ public class Login {
     public void clickOnMainLoggingBt() {
         mainLoggingBt.click();
     }
-    public void setLogin(String strLogin)
-    {
+
+    public void setLogin(String strLogin) {
+        wait.until(ExpectedConditions.visibilityOf(waitCondition));
         login.sendKeys(strLogin);
     }
-    public void setPassword(String strPass)
-    {
+
+    public void setPassword(String strPass) {
         password.sendKeys(strPass);
     }
-    public void clickOnLoginBt()
-    {
+
+    public void clickOnLoginBt() {
         loginBtn.click();
     }
 
+    public void checkSearchResult() {
+        wait.until(ExpectedConditions.visibilityOf(checkCondition));
+        Boolean display = checkCondition.isDisplayed();
+        Assertions.assertTrue(display);
+    }
 }
