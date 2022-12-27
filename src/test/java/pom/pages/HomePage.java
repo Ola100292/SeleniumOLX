@@ -11,20 +11,25 @@ public class HomePage extends TestBase {
     WebElement accCookies;
     @FindBy(css = "[href*='mobilne']")
     WebElement footerMobileBtn;
+    @FindBy(css = "[href*='regions']")
+    WebElement footerRegionsBtn;
 
     public void setAccCookies() {
         accCookies.click();
     }
 
     public void setFooterMobileBtn() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,3500)");
         footerMobileBtn.click();
     }
-
     public void checkPage() {
         String expectedURL = "https://www.olx.pl/lp/mobilne/";
         String actualUrl = driver.getCurrentUrl();
         Assertions.assertEquals(expectedURL, actualUrl);
+    }
+    public void setFooterRegionsBtn() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        footerRegionsBtn.click();
     }
 }

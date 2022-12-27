@@ -56,8 +56,6 @@ public class MainPage {
         js.executeScript("window.scrollBy(0,4500)");
         Boolean city = driver.getPageSource().contains("Gliwice");
         Assertions.assertTrue(city);
-
-
     }
 
 }
