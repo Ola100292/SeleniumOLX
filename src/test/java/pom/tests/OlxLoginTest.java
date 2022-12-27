@@ -8,9 +8,9 @@ import pom.pages.LoginPage;
 public class OlxLoginTest extends TestBase {
 
     @Test
-    public void init() {
+    public void initLogIn() {
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-        homePage.clickOnCookies();
+        homePage.setAccCookies();
 
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.clickOnMainLoggingBt();

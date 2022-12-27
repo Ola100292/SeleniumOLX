@@ -11,7 +11,7 @@ public class OlxSearchingTest extends TestBase {
     @Test
     public void initSearchHouses() {
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-        homePage.clickOnCookies();
+        homePage.setAccCookies();
         SearchPage searchPage = PageFactory.initElements(driver, SearchPage.class);
         searchPage.setMainSearchField("Dom");
         searchPage.setMainCityField();
@@ -23,7 +23,7 @@ public class OlxSearchingTest extends TestBase {
     @Test
     public void initSearchCars() {
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-        homePage.clickOnCookies();
+        homePage.setAccCookies();
         SearchPage searchPage = PageFactory.initElements(driver, SearchPage.class);
         searchPage.setCarCategory();
         searchPage.setCars();
