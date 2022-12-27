@@ -1,5 +1,6 @@
 package pom.tests;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.PageFactory;
 import pom.pages.HomePage;
@@ -15,6 +16,10 @@ public class OlxSearchingTest extends TestBase {
         SearchPage searchPage = PageFactory.initElements(driver, SearchPage.class);
         searchPage.setMainSearchField("Dom");
         searchPage.setMainCityField();
+        String actualCity = searchPage.setChooseRegion();
+        String exceptedCity = "Gliwice";
+        Assertions.assertEquals(exceptedCity, actualCity);
+
     }
 
 }
