@@ -62,7 +62,6 @@ public class Search {
         WebElement chooseRegion = driver.findElement(By.className("a-region-6"));
         //Move Mouse Action
         actions.moveToElement(chooseRegion).perform();
-        driver.findElement(By.xpath("//*[@id=\"a-region-6\"]"));
         List<WebElement> listingCount = driver.findElements(By.xpath("//*[@id=\"a-region-6\"]"));
         String actualCity = listingCount.get(13).getDomAttribute("data-name");
         String exceptedCity = "Gliwice";

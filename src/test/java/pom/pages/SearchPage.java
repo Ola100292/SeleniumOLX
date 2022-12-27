@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pom.tests.TestBase;
 
 import javax.swing.*;
@@ -17,18 +18,21 @@ public class SearchPage extends TestBase {
     WebElement mainCityField;
     @FindBy(className = "a-region-6")
     WebElement chooseRegion;
+    @FindBy(css = "[class*='cat-cmt-icon-5']")
+    WebElement carCategory;
+    @FindBy(css = "[href*='samochody']")
+    WebElement cars;
 
 
-    public void setMainSearchField(String searchField)
-    {
+    public void setMainSearchField(String searchField) {
         mainSearchField.sendKeys(searchField);
     }
-    public void setMainCityField()
-    {
+
+    public void setMainCityField() {
         mainCityField.click();
     }
-    public String setChooseRegion()
-    {
+
+    public String setChooseRegion() {
         Actions actions = new Actions(driver);
         actions.moveToElement(chooseRegion).perform();
         List<WebElement> listingCount = driver.findElements(By.xpath("//*[@id=\"a-region-6\"]"));
@@ -36,6 +40,13 @@ public class SearchPage extends TestBase {
         return actualCity;
     }
 
+    public void setCarCategory() {
 
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[class*='cat-cmt-icon-5']")));
+        carCategory.click();
+    }
+    public void setCars() {
+        wait.until(ExpectedConditions.elementToBeClickable(cars)).click();
+    }
 
 }
