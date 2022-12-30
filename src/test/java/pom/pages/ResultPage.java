@@ -2,12 +2,14 @@ package pom.pages;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pom.tests.TestBase;
 
-public class ResultPage extends TestBase {
+public class ResultPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"search\"]")
     WebElement searchInput;
     @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[2]/form/div[3]/div[1]/div/div[14]/div/div")
@@ -16,6 +18,10 @@ public class ResultPage extends TestBase {
     WebElement undamagedOption;
     @FindBy(name = "searchBtn")
     WebElement searchBtn;
+
+    public ResultPage(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
+    }
 
     public void setSearchInput() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.name("searchBtn")));

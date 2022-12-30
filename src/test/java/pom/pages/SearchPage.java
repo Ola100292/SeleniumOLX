@@ -1,16 +1,18 @@
 package pom.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pom.tests.TestBase;
 
 import javax.swing.*;
 import java.util.List;
 
-public class SearchPage extends TestBase {
+public class SearchPage extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"headerSearch\"]")
     WebElement mainSearchField;
@@ -23,6 +25,9 @@ public class SearchPage extends TestBase {
     @FindBy(css = "[href*='samochody']")
     WebElement cars;
 
+    public SearchPage(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
+    }
 
     public void setMainSearchField(String searchField) {
         mainSearchField.sendKeys(searchField);
@@ -45,6 +50,7 @@ public class SearchPage extends TestBase {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[class*='cat-cmt-icon-5']")));
         carCategory.click();
     }
+
     public void setCars() {
         wait.until(ExpectedConditions.elementToBeClickable(cars)).click();
     }

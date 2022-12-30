@@ -1,12 +1,14 @@
 package pom.pages;
 
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pom.tests.TestBase;
 
-public class LoginPage extends TestBase {
+public class LoginPage extends BasePage {
 
     @FindBy(css = "#topLoginLink > span")
     WebElement mainLoggingBt;
@@ -21,6 +23,10 @@ public class LoginPage extends TestBase {
     @FindBy(className = "css-rdovvl")
     WebElement checkCondition;
 
+    public LoginPage(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
+    }
+
     public void clickOnMainLoggingBt() {
         mainLoggingBt.click();
     }
@@ -29,6 +35,7 @@ public class LoginPage extends TestBase {
         wait.until(ExpectedConditions.visibilityOf(waitCondition));
         login.sendKeys(strLogin);
     }
+
     public void setPassword(String strPass) {
         password.sendKeys(strPass);
     }

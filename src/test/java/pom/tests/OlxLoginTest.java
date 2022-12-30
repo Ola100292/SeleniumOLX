@@ -9,10 +9,10 @@ public class OlxLoginTest extends TestBase {
 
     @Test
     public void initLogIn() {
-        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        HomePage homePage = new HomePage(driver, wait);
         homePage.setAccCookies();
 
-        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+        LoginPage loginPage = new LoginPage(driver, wait);
         loginPage.clickOnMainLoggingBt();
         loginPage.setLogin("kontotestowe12345@o2.pl");
         loginPage.setPassword("Qazwsx12#");

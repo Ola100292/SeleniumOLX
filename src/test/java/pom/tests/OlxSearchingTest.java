@@ -10,9 +10,9 @@ import pom.pages.SearchPage;
 public class OlxSearchingTest extends TestBase {
     @Test
     public void initSearchHouses() {
-        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        HomePage homePage = new HomePage(driver, wait);
         homePage.setAccCookies();
-        SearchPage searchPage = PageFactory.initElements(driver, SearchPage.class);
+        SearchPage searchPage = new SearchPage(driver, wait);
         searchPage.setMainSearchField("Dom");
         searchPage.setMainCityField();
         String actualCity = searchPage.setChooseRegion();
@@ -20,14 +20,15 @@ public class OlxSearchingTest extends TestBase {
         Assertions.assertEquals(exceptedCity, actualCity);
 
     }
+
     @Test
     public void initSearchCars() {
-        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        HomePage homePage = new HomePage(driver, wait);
         homePage.setAccCookies();
-        SearchPage searchPage = PageFactory.initElements(driver, SearchPage.class);
+        SearchPage searchPage = new SearchPage(driver, wait);
         searchPage.setCarCategory();
         searchPage.setCars();
-        ResultPage resultPage = PageFactory.initElements(driver, ResultPage.class);
+        ResultPage resultPage = new ResultPage(driver, wait);
         resultPage.setSearchInput();
         resultPage.setTechnicalConditionHeading();
         resultPage.setSearchBtn();
