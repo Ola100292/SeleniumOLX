@@ -23,4 +23,10 @@ public class OlxHomeTest extends TestBase {
         RegionsPage regionsPage = new RegionsPage(driver, wait);
         regionsPage.checkRegion();
     }
+
+    @Test
+    public void initCheckFbIcon()
+    {
+
+    }
 }

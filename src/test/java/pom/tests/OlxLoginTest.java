@@ -11,7 +11,6 @@ public class OlxLoginTest extends TestBase {
     public void initLogIn() {
         HomePage homePage = new HomePage(driver, wait);
         homePage.setAccCookies();
-
         LoginPage loginPage = new LoginPage(driver, wait);
         loginPage.clickOnMainLoggingBt();
         loginPage.setLogin("kontotestowe12345@o2.pl");
