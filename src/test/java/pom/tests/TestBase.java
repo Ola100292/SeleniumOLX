@@ -1,5 +1,6 @@
 package pom.tests;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,13 +16,14 @@ import java.time.Duration;
 public class TestBase {
 
     WebDriver driver;
-    String pathToDrive = "chromedriver.exe";
+   // String pathToDrive = "chromedriver.exe";
     WebDriverWait wait;
 
 
     @BeforeAll
     public void initChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", pathToDrive);
+        //System.setProperty("webdriver.chrome.driver", pathToDrive);
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().to("https://www.olx.pl/");
